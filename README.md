@@ -1,4 +1,6 @@
-### IMPROVE QUERY 300 TIMES
+## IMPROVE QUERY 300 TIMES
+
+[SQL Query Optimization](https://www.datacamp.com/blog/sql-query-optimization)
 
 ### Index all Column use in Where, Order by, and Group clauses
 ```sql
