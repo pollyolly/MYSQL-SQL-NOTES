@@ -11,18 +11,18 @@ CREATE INDEX name ON user_tbl (name);
 ### Optimize Like statement using Union Clauses
 Using wild card will reduce the performance of a query.
 ```sql
-SELECT name, age FROM user_tbl WHERE name like '%Rol' or age like '%7'
+SELECT name, age FROM user_tbl WHERE name like '%Jac' or age like '%7'
 ```
 Using union to optimize the query to have a result for both "name" and "age" where both column are indexed.
 ```sql
-SELECT name, age FROM user_tbl WHERE name like '%Rol' union all select FROM user_tbl WHERE age like '%7';
+SELECT name, age FROM user_tbl WHERE name like '%Jac' union all select FROM user_tbl WHERE age like '%7';
 
 ```
 ### Avoid Like expression with leading Wildcard
 
 MySQL will not able to utilize the indexed column when using Wildcard.
 ```sql
-Select name FROM user_tbl WHERE name like '%Rol';
+Select name FROM user_tbl WHERE name like '%Jac';
 ```
 ### Use Fulltext Search
 ```vim
@@ -40,7 +40,7 @@ CREATE TABLE user_tbl (
 
 ALTER TABLE user_tbl ADD FULLTEXT (name, nickname);
 
-SELECT * FROM user_tbl WHERE MATCH (name) AGAINST ('Rolly');
+SELECT * FROM user_tbl WHERE MATCH (name) AGAINST ('Jack Ma');
 
 SELECT * FROM user_tbl WHERE MATCH(name, nickname) AGAINST('+Satoshi -Nakamoto' IN BOOLEAN MODE);
 ```
